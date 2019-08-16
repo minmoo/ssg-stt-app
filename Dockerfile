@@ -17,6 +17,7 @@ RUN cd warp-ctc; cd pytorch_binding; python setup.py install
 
 # install pytorch audio
 RUN git clone https://github.com/pytorch/audio.git
+RUN cd audio; git checkout d92de5b
 RUN cd audio; python setup.py install
 
 # install ctcdecode
@@ -25,9 +26,12 @@ RUN cd ctcdecode; pip install .
 
 ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
+# encoding
+ENV LC_ALL=C.UTF-8
+
 # install apex
 RUN git clone --recursive https://github.com/NVIDIA/apex.git
-RUN cd apex; pip install .
+RUN cd apex; pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
 
 # install deepspeech.pytorch
 ADD . /workspace/deepspeech.pytorch
