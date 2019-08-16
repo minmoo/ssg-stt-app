@@ -34,8 +34,8 @@ RUN git clone --recursive https://github.com/NVIDIA/apex.git
 RUN cd apex; pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" .
 
 # install deepspeech.pytorch
-ADD . /workspace/deepspeech.pytorch
-RUN cd deepspeech.pytorch; pip install -r requirements.txt
+ADD . /workspace/ssg-stt-app
+RUN cd ssg-stt-app; pip install -r requirements.txt
 
 # launch jupiter
 RUN pip install jupyter

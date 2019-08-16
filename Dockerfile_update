@@ -1,0 +1,5 @@
+FROM ssgspeechkc.azurecr.io/ssg-stt-app
+
+# Application
+COPY . /workspace/ssg-stt-app
+WORKDIR /workspace/ssg-stt-app
