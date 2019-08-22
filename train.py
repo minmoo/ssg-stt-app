@@ -305,7 +305,7 @@ if __name__ == '__main__':
 
         start_iter = 0  # Reset start iteration for next epoch
         with torch.no_grad():
-            wer, cer, output_data = evaluate(test_loader=test_loader,
+            wer, cer, output_data, result_list = evaluate(test_loader=test_loader,
                                              device=device,
                                              model=model,
                                              decoder=decoder,

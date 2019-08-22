@@ -19,6 +19,7 @@ parser.add_argument('--verbose', action="store_true", help="print out decoded ou
 parser.add_argument('--output-path', default=None, type=str, help="Where to save raw acoustic output")
 parser = add_decoder_args(parser)
 parser.add_argument('--save-output', action="store_true", help="Saves output of model from test")
+parser.add_argument('--save-path', type=str)
 
 
 def evaluate(test_loader, device, model, decoder, target_decoder, save_output=False, verbose=False):
